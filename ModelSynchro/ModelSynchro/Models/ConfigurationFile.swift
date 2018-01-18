@@ -34,6 +34,8 @@ struct ConfigurationFile: Codable {
 
     /// Authentication endpoint used to grab the auth token.
     let authEndpoint: AuthEndpoint?
+
+    let reactNativeInfo: ReactNativeInfo?
 }
 
 extension ConfigurationFile {
@@ -56,4 +58,14 @@ extension ConfigurationFile {
             return SwiftLanguageFormatter()
         }
     }
+}
+
+struct ReactNativeInfo: Codable {
+    let url: String
+    let function: [ReactNativeFunction]
+}
+
+struct ReactNativeFunction: Codable {
+    let eventRecevier: String
+    let eventSender: String
 }
